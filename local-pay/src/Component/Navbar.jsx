@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import { FaCalendar } from 'react-icons/fa'
 import {
     Box,
     Image,
@@ -17,8 +18,10 @@ import {
     DrawerContent,
     DrawerHeader,
     DrawerOverlay,
+    background,
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
+import { color } from 'framer-motion';
 
 // provide text Decoration Non or Remove underline on hover as well
 const NoDecorationLink = chakra(Link, {
@@ -34,6 +37,7 @@ const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef();
 
+    const [isAuth, setAuth] = useState(true)
     return (
         <chakra.header>
             <Box bg="gray.900" color="white" py={4} px={8}>
@@ -59,9 +63,7 @@ const Navbar = () => {
                         <Link href="#" color="white">
                             Services
                         </Link>
-                        <Link href="#" color="white">
-                            Login
-                        </Link>
+                        {isAuth? <Button>Jahir</Button>:<Button>Login</Button>}
                     </HStack>
                     <IconButton
                         display={{ base: 'inline-flex', md: 'none' }}
@@ -97,9 +99,7 @@ const Navbar = () => {
                             <Link href="#" onClick={onClose}>
                                 Services
                             </Link>
-                            <Link href="#" onClick={onClose}>
-                                Login
-                            </Link>
+                            {isAuth? <Button>Jahir</Button>:<Button>Login</Button>}
                         </VStack>
                     </DrawerBody>
                 </DrawerContent>
