@@ -19,6 +19,7 @@ const Home = () => {
     
         return () => clearTimeout(timer);
       }, [currentImg]);
+      
     const imageUrl = images[currentImg];
 
 
