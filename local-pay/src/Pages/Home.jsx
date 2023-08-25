@@ -2,6 +2,7 @@ import { Grid, HStack, Image, Text } from "@chakra-ui/react"
 import { useState, useEffect } from 'react';
 import { CSSReset, Box, Button, useMediaQuery } from '@chakra-ui/react';
 import { ArrowRightIcon } from "@chakra-ui/icons";
+import { PaymentSection } from "./PaymentSection";
 
 const headData = [
   {
@@ -84,6 +85,7 @@ const Home = () => {
         return <p style={{ borderRadius: "50%", width: "15px", height: "15px", backgroundColor: item.id === headerData.id ? "blue" : "lightGray" }}></p>
       })}
     </HStack>
+    <PaymentSection/>
     <Grid templateColumns={isLargeScreen ? "1fr" : "repeat(2, 1fr)"} gap={6} marginLeft="50px" marginRight="50px"> 
 
       <Box boxShadow='outline' rounded="md" p={4} h="300px" margin={10} bgColor="lightblue" _hover={{cursor: "pointer", boxShadow: "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"}}  >
@@ -127,6 +129,8 @@ const Home = () => {
       <Text>Book flights, order food or buy groceries. Use all your favourite apps without downloading them.</Text>
       <br />
     </Box>
+    
+    
   </>
 
 
