@@ -36,7 +36,7 @@ const DashBoard =()=>{
         <Box border="2px solid blue" padding={4} borderRadius="15px" _hover={{bg:"lightblue",cursor: "pointer",color:"red",boxShadow: "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"}}
         onClick={()=> setMethods(!methods)}>
             <Center><Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqmgSrHnwPvKhAjRiAI-DNhHlSHHThPoaodm3FF6anW0AIfxFCKHZjJFSzee2RSdu8oO4&usqp=CAU" alt="more" h="100px"w="100px" marginBottom={4}/></Center> 
-            <Text align="center">More</Text>
+            <Text align="center">{methods? "Less":"More"}</Text>
         </Box>
       </Grid>
       {methods && <PaymentSection />}
