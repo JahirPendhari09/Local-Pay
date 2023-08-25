@@ -1,7 +1,6 @@
 import React from 'react';
 import { Flex, Image, Link, HStack ,VStack} from '@chakra-ui/react';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-// import PhonePeLogo from './phonepe-logo.png'; // Import your logo image
 
 const Footer = () => {
   return (
