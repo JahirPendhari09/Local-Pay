@@ -16,6 +16,7 @@ const Footer = () => {
         border="1px solid black"
         p={4}
         bg="facebook.200"
+        marginBottom="20px"
       >
         <VStack>
           <HStack>
@@ -53,7 +54,7 @@ const Footer = () => {
           <Link href="#">Blog</Link>
         </VStack>
       </Grid>
-
+      <h1 style={{textAlign:"center", fontSize:"40px", fontWeight:"600"}}> Thank You </h1>
     </div>
   );
 };

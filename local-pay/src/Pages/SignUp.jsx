@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button, Input,Text,Box, Center,Image, HStack,VStack } from '@chakra-ui/react'
 import { Link } from "react-router-dom";
 
-function Login() {
+function SignUp() {
   const [formState, setFormState] = useState({ email:"",password:""});
 
   const handleChange =(e)=>{
@@ -14,20 +14,23 @@ function Login() {
   }
   
 //    const {email, password}=formState
-  return <Box w="400px" h="500px" margin="auto" style={{boxShadow: "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"}}
+  return <Box w="400px" h="550px" margin="auto" style={{boxShadow: "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"}}
    marginTop="50px" marginBottom="50px" borderRadius="20px" p="30px">
 
-     <Text textAlign="center" marginBottom="50px" fontSize="35px" fontWeight="600">Sign In</Text>
+     <Text textAlign="center" marginBottom="30px" fontSize="35px" fontWeight="600">Sign Up</Text>
 
      <label >Email </label>
-     <Input placeholder="Email"type="email" marginBottom="20px" marginTop="10px"/>
+     <Input placeholder="Email"type="email" marginBottom="10px" marginTop="10px"/>
 
      <label>Password</label>
-     <Input placeholder="Password" type="password" marginBottom="20px" marginTop="10px"/>
+     <Input placeholder="Password" type="password" marginBottom="10px" marginTop="10px"/>
 
-     <Center><Button bg="blue.100">Login</Button></Center>
+     <label>Mobile Number</label>
+     <Input placeholder="Mobile Number" type="number" marginBottom="10px" marginTop="10px"/>
+
+     <Center><Button bg="blue.100">Register</Button></Center>
      <br />
-     <Text>New User ? <span style={{color:"blue"}}><Link to="/signUp">Register</Link></span></Text>
+     <Text>Have an Account? <span style={{color:"blue"}}><Link to="/login">Login</Link></span></Text>
      <br />
      <HStack justifyContent="center" gap="20px" >
        <Image src="../google.png" alt="" w="30px" _hover={{cursor:"pointer"}}/>
@@ -36,4 +39,4 @@ function Login() {
   </Box>
 }
 
-export {Login};
+export {SignUp};
