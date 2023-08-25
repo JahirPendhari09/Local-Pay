@@ -54,7 +54,7 @@ const Navbar = () => {
                     </NoDecorationLink>
                     <Spacer />
                     <HStack spacing={10} display={{ base: 'none', md: 'flex' }}>
-                        <Link href="#" color="white" >
+                        <Link href="/" color="white" >
                             Home
                         </Link>
                         <Link href="#" color="white">

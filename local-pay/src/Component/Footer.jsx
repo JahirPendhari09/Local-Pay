@@ -1,6 +1,6 @@
 import React from 'react';
-import { Flex, Image, Link, HStack ,VStack} from '@chakra-ui/react';
-import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { Grid,Box,chakra, Flex, Image, Link, HStack ,VStack} from '@chakra-ui/react';
+import { FaLinkedinIn, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
