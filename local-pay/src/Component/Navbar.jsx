@@ -21,7 +21,6 @@ import {
     background,
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import { color } from 'framer-motion';
 
 // provide text Decoration Non or Remove underline on hover as well
 const NoDecorationLink = chakra(Link, {
@@ -40,8 +39,8 @@ const Navbar = () => {
     const [isAuth, setAuth] = useState(true)
     return (
         <chakra.header>
-            <Box bg="gray.900" color="white" py={4} px={8}>
-                <Flex alignItems="center">
+            <Box bg="gray.900" color="white" py={4} px={8} >
+                <Flex alignItems="center" >
                     <NoDecorationLink href="#" > 
                         <Flex gap="20px" alignItems="ceter">
                             <Box boxSize='50px' w="50px">
@@ -63,7 +62,7 @@ const Navbar = () => {
                         <Link href="#" color="white">
                             Services
                         </Link>
-                        {isAuth? <Button>Jahir</Button>:<Button>Login</Button>}
+                        {isAuth?<Link href='/login'> <Button>Jahir</Button></Link>:<Link><Button>Login</Button></Link>}
                     </HStack>
                     <IconButton
                         display={{ base: 'inline-flex', md: 'none' }}
