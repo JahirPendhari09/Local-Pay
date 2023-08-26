@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { CSSReset, Box, Button, useMediaQuery } from '@chakra-ui/react';
 import { ArrowRightIcon } from "@chakra-ui/icons";
 import { PaymentSection } from "./PaymentSection";
-
+import style from "../Styles/home.module.css"
 const headData = [
   {
     id: 0,
@@ -85,10 +85,13 @@ const Home = () => {
         return <p style={{ borderRadius: "50%", width: "15px", height: "15px", backgroundColor: item.id === headerData.id ? "blue" : "lightGray" }}></p>
       })}
     </HStack>
+
+    {/* adding Payment Methods from PaymentMethods component */}
     <PaymentSection/>
+
     <Grid templateColumns={isLargeScreen ? "1fr" : "repeat(2, 1fr)"} gap={6} marginLeft="50px" marginRight="50px"> 
 
-      <Box boxShadow='outline' rounded="md" p={4} h="300px" margin={10} bgColor="lightblue" _hover={{cursor: "pointer", boxShadow: "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"}}  >
+      <Box boxShadow='outline' rounded="md"  className={style.boxes}  p="30px">
         <h1 style={{ fontSize: "30px", color: "darkblue" }}>Insurance made</h1>
         <h1 style={{ fontSize: "30px", color: "darkblue" }}>easy</h1>
         <p style={{ paddingTop: "20px", fontSize: "1rem" }}>Secure your life,health,</p>
@@ -98,7 +101,7 @@ const Home = () => {
         </Box>
       </Box>
 
-      <Box boxShadow='outline' rounded="md" p={4} h="300px" margin={10} bg="green.200" _hover={{cursor: "pointer",boxShadow: "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"}}>
+      <Box boxShadow='outline' rounded="md"  bg="green.200" className={style.boxes} p="30px">
         <h1 style={{ fontSize: "30px", color: "darkblue" }}>The Best in Mutual </h1>
         <h1 style={{ fontSize: "30px", color: "darkblue" }}>Funds Investments</h1>
         <p style={{ paddingTop: "20px", fontSize: "1rem" }}>Invest your wealth and achieve</p>
