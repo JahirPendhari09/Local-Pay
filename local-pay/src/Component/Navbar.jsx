@@ -89,7 +89,7 @@ const Navbar = () => {
                     <DrawerHeader>Menu</DrawerHeader>
                     <DrawerBody>
                         <VStack direction="column" spacing={4}>
-                            <Link href="#" onClick={onClose}>
+                            <Link href="/" onClick={onClose}>
                                 Home
                             </Link>
                             <Link href="#" onClick={onClose}>
@@ -98,7 +98,7 @@ const Navbar = () => {
                             <Link href="#" onClick={onClose}>
                                 Services
                             </Link>
-                            {isAuth? <Button>Jahir</Button>:<Button>Login</Button>}
+                            {isAuth?<Link href='/login'> <Button>Jahir</Button></Link>:<Link><Button>Login</Button></Link>}
                         </VStack>
                     </DrawerBody>
                 </DrawerContent>
