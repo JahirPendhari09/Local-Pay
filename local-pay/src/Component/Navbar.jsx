@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../ContexProvider/AuthcontextProvider';
 // import { FaCalendar } from 'react-icons/fa'
 import {
     Box,
@@ -35,8 +36,9 @@ const NoDecorationLink = chakra(Link, {
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef();
+    const {forState, login,logout}= useContext(AuthContext);
 
-    const [isAuth, setAuth] = useState(true)
+    // const [isAuth, setAuth] = useState(true)
     return (
         <chakra.header>
             <Box bg="gray.900" color="white" py={4} px={8} >
@@ -59,10 +61,10 @@ const Navbar = () => {
                         <Link href="#" color="white">
                             About
                         </Link>
-                        <Link href="#" color="white">
-                            Services
+                        <Link href="/dashboard" color="white">
+                            Dashboard
                         </Link>
-                        {isAuth?<Link href='/login'> <Button>Jahir</Button></Link>:<Link><Button>Login</Button></Link>}
+                        {forState.isAuth?<Link href='/login'> <Button>Jahir</Button></Link>:<Link href="/login"><Button>Login</Button></Link>}
                     </HStack>
                     <IconButton
                         display={{ base: 'inline-flex', md: 'none' }}
@@ -95,10 +97,10 @@ const Navbar = () => {
                             <Link href="#" onClick={onClose}>
                                 About
                             </Link>
-                            <Link href="#" onClick={onClose}>
-                                Services
+                            <Link href="/dashboard" onClick={onClose}>
+                                Dashboard
                             </Link>
-                            {isAuth?<Link href='/login'> <Button>Jahir</Button></Link>:<Link><Button>Login</Button></Link>}
+                            {forState.isAuth?<Link href='/login'> <Button>Jahir</Button></Link>:<Link><Button>Login</Button></Link>}
                         </VStack>
                     </DrawerBody>
                 </DrawerContent>
