@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../ContexProvider/AuthcontextProvider';
 // import { FaCalendar } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 import {
     Box,
     Image,
@@ -10,7 +11,6 @@ import {
     VStack,
     Button,
     HStack,
-    Link,
     IconButton,
     useDisclosure,
     Drawer,
@@ -36,7 +36,7 @@ const NoDecorationLink = chakra(Link, {
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef();
-    const {forState, login,logout}= useContext(AuthContext);
+    const {isAuth}= useContext(AuthContext);
 
     // const [isAuth, setAuth] = useState(true)
     return (
@@ -55,16 +55,16 @@ const Navbar = () => {
                     </NoDecorationLink>
                     <Spacer />
                     <HStack spacing={10} display={{ base: 'none', md: 'flex' }}>
-                        <Link href="/" color="white" >
+                        <Link to="/" color="white" >
                             Home
                         </Link>
-                        <Link href="#" color="white">
+                        <Link to="/" color="white">
                             About
                         </Link>
-                        <Link href="/dashboard" color="white">
+                        <Link to="/dashboard" color="white">
                             Dashboard
                         </Link>
-                        {forState.isAuth?<Link href='/login'> <Button>Jahir</Button></Link>:<Link href="/login"><Button>Login</Button></Link>}
+                        {!isAuth?<Link to="/login"> <Button>Login</Button></Link>:<Link to="/profile"><Button>Jahir</Button></Link>}
                     </HStack>
                     <IconButton
                         display={{ base: 'inline-flex', md: 'none' }}
@@ -91,16 +91,16 @@ const Navbar = () => {
                     <DrawerHeader>Menu</DrawerHeader>
                     <DrawerBody>
                         <VStack direction="column" spacing={4}>
-                            <Link href="/" onClick={onClose}>
+                            <Link to="/" onClick={onClose}>
                                 Home
                             </Link>
-                            <Link href="#" onClick={onClose}>
+                            <Link to="#" onClick={onClose}>
                                 About
                             </Link>
-                            <Link href="/dashboard" onClick={onClose}>
+                            <Link to="/dashboard" onClick={onClose}>
                                 Dashboard
                             </Link>
-                            {forState.isAuth?<Link href='/login'> <Button>Jahir</Button></Link>:<Link><Button>Login</Button></Link>}
+                            {!isAuth?<Link to="/login"> <Button>Login</Button></Link>:<Link to="/profile"><Button>Jahir</Button></Link>}
                         </VStack>
                     </DrawerBody>
                 </DrawerContent>

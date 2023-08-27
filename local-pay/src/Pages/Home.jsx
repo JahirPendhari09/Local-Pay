@@ -48,7 +48,6 @@ const Home = () => {
 
   const { title, text, btn, image } = headerData
 
-
   return <>
     <CSSReset />
     <Box
@@ -82,7 +81,7 @@ const Home = () => {
     </Box>
     <HStack justifyContent="center" paddingBottom="10px">
       {headData.map((item, i) => {
-        return <p style={{ borderRadius: "50%", width: "15px", height: "15px", backgroundColor: item.id === headerData.id ? "blue" : "lightGray" }}></p>
+        return <p key={item.id} style={{ borderRadius: "50%", width: "15px", height: "15px", backgroundColor: item.id === headerData.id ? "blue" : "lightGray" }}></p>
       })}
     </HStack>
 

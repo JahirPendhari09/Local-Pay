@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button, Input,Text,Box, Center,Image, HStack,VStack } from '@chakra-ui/react'
 import { Link } from "react-router-dom";
-
+import style from "../Styles/login.module.css"
 function SignUp() {
   const [formState, setFormState] = useState({ email:"",password:""});
 
@@ -14,8 +14,7 @@ function SignUp() {
   }
   
 //    const {email, password}=formState
-  return <Box w="400px" h="550px" margin="auto" style={{boxShadow: "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"}}
-   marginTop="50px" marginBottom="50px" borderRadius="20px" p="30px">
+  return <Box h="550px" className={style.mainBox}>
 
      <Text textAlign="center" marginBottom="30px" fontSize="35px" fontWeight="600">Sign Up</Text>
 

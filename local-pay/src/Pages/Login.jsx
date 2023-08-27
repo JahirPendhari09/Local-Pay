@@ -1,52 +1,78 @@
 
-import { useState } from "react";
-import { Button, Input,Text,Box, Center,Image, HStack,VStack } from '@chakra-ui/react'
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Button, Input, Text, Box, Image, HStack } from '@chakra-ui/react'
+import { Link, Navigate } from "react-router-dom";
+import style from "../Styles/login.module.css";
+import { AuthContext } from "../ContexProvider/AuthcontextProvider";
+import axios from "axios"
 
 function Login() {
-  const [formState, setFormState] = useState({ email:"",password:""});
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const { isAuth, login} = useContext(AuthContext);
 
-  const handleChange =(e)=>{
-    const {name,value}= e.target
-    setFormState({
-      ...formState, [name]:value
-    })
+  if (isAuth) {
+    return <Navigate to="/" />
   }
-  
-  return <Box w="400px" h="500px" margin="auto" style={{boxShadow: "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"}}
-   marginTop="50px" marginBottom="50px" borderRadius="20px" p="30px">
 
-     <Text textAlign="center" marginBottom="50px" fontSize="35px" fontWeight="600">Sign In</Text>
+  const checkLogin=(res)=> {
+    if (res.length) { 
+      return login() 
+    }
+    else {
+      alert("Login failed!...email or password Incorrect");
+    }
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    axios.get(`https://local-pay.onrender.com/users?email=${email}&password=${password}`)
+      .then(res => checkLogin(res.data))
+  }
 
-     <label >Email </label>
-     <Input 
+  const { email, password } = formState;
+
+  if (isAuth) {
+    return <Navigate to="/" />
+  }
+  return <Box className={style.mainBox} >
+
+    <Text textAlign="center" marginBottom="50px" fontSize="35px" fontWeight="600">Sign In</Text>
+    <form onSubmit={handleSubmit}>
+      <label >Email </label>
+      <Input
         placeholder="Email"
         type="email"
+        name="email"
         marginBottom="20px"
         marginTop="10px"
-        value={formState.email}
-        onChange={handleChange}
-         />
-
-     <label>Password</label>
-     <Input
+        value={email}
+        onChange={(e) => {
+          setFormState({ ...formState, [e.target.name]: e.target.value })
+        }}
+      />
+      <label>Password</label>
+      <Input
         placeholder="Password"
         type="password"
-        marginBottom="20px" 
+        name="password"
+        marginBottom="20px"
         marginTop="10px"
-        value={formState.password}
-        onChange={handleChange}
-         />
+        value={password}
+        onChange={(e) => {
+          setFormState({ ...formState, [e.target.name]: e.target.value })
+        }}
+      />
 
-     <Center><Button bg="blue.100">Login</Button></Center>
-     <br />
-     <Text>New User ? <span style={{color:"blue"}}><Link to="/signUp">Register</Link></span></Text>
-     <br />
-     <HStack justifyContent="center" gap="20px" >
-       <Image src="../google.png" alt="" w="30px" _hover={{cursor:"pointer"}}/>
-      <Image src="../facebook.png" alt="" w="30px" _hover={{cursor:"pointer"}}/>
-     </HStack>
+      <Button bg="blue.100" type="submit">Login</Button>
+    </form>
+    <br />
+    <Text>New User ? <span style={{ color: "blue" }}><Link to="/signUp">Register</Link></span></Text>
+    <br />
+    <HStack justifyContent="center" gap="20px" >
+      <Image src="../google.png" alt="" w="30px" _hover={{ cursor: "pointer" }} />
+      <Image src="../facebook.png" alt="" w="30px" _hover={{ cursor: "pointer" }} />
+    </HStack>
+
   </Box>
 }
 
-export {Login};
+export { Login };
