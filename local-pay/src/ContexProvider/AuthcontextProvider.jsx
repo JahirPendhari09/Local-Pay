@@ -2,24 +2,18 @@ import { createContext, useState } from "react"
 
 export const AuthContext = createContext();
 
-export const initState={
-    email:"",
-    password:"",
-    isAuth:true
-}
 const AuthcontextProvider=({children})=>{
 
-    const [forState ,setForState]= useState(initState);
+    const [isAuth ,setIsAuth]= useState(true);
 
-    const login =(loginData)=>{
-        
+    const login =()=>{
+        setIsAuth(true)
     }
     const logout =()=>{
-        setForState(initState)
+        setIsAuth(false)
     }
 
-
-    return <AuthContext.Provider value={{forState,login,logout}}>{children}</AuthContext.Provider>
+    return <AuthContext.Provider value={{isAuth,login,logout}}>{children}</AuthContext.Provider>
 }
 
 export {AuthcontextProvider}

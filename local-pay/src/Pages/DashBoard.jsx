@@ -4,6 +4,7 @@ import { PaymentSection } from "./PaymentSection"
 import style from "../Styles/payment.module.css"
 import { Link } from "react-router-dom"
 import axios from "axios"
+import LoadingSkeleton from "../Component/LoadingSkeleton"
 
 const bgColor=["lightgreen", "pink", "lightblue", "orange","lightgray"]
 // const history=[
@@ -53,20 +54,28 @@ const DashBoard =()=>{
     const [isLargeScreen] = useMediaQuery("(max-width: 768px)");
 
     const [transaction_History, setHistory]= useState([]);
+    const [loading, setLoading]= useState(false);
 
     const fetchData =()=>{
+        setLoading(true)
           axios.get("https://local-pay.onrender.com/transaction_History")
-        .then(res=> setHistory(res.data));
+        .then(res=> {
+            setLoading(false)
+            setHistory(res.data)
+        });
     }
     useEffect(()=>{
         fetchData();
     },[])
     console.log(transaction_History)
     
-
+    if(loading)
+    {
+        return <LoadingSkeleton/>
+    }
     return <>
-    <HStack justifyContent="space-between" marginRight="50px" marginLeft="50px" h="80px" p={4}>
-        <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ7urHdOKUxYEvAYMnI6XEyQ1i9Rdr60rOVofJhz4M844mHKK1yUGXf3Ea2Oj2zs-pRVs&usqp=CAU" alt="user Logo" h="100%" _hover={{cursor:"pointer"}}/>
+    <HStack justifyContent="space-between" mt="20px"marginRight="50px" marginLeft="50px" h="80px" p={4}>
+        <Link to="/profile"><Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ7urHdOKUxYEvAYMnI6XEyQ1i9Rdr60rOVofJhz4M844mHKK1yUGXf3Ea2Oj2zs-pRVs&usqp=CAU" alt="user Logo" h="50px"paddingLeft="20px" _hover={{cursor:"pointer"}}/> <Text fontSize="16px" fontWeight="bold">View Peofile</Text></Link>
         <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPLd63aKSW5aeSlp5Z72J0CgS1gnPSvBEveg&usqp=CAU" alt="notification" h="100%" _hover={{cursor:"pointer"}} borderRadius="50%" />
     </HStack>
     <Box w={isLargeScreen? "80%":"50%"} className={style.balanceBox} >
@@ -113,8 +122,9 @@ const DashBoard =()=>{
       </HStack>
       <Grid templateColumns={['1fr', '1fr', '1fr 1fr']}gap="15px" marginTop={4}>
       {transaction_History && transaction_History?.length>0 && transaction_History.map((item,i)=>{
-        return <HStack key={item.id} justifyContent="space-around"w="60%" margin="auto" border="1px" borderRadius="20px"  p={4} fontSize="20px"bg="bisque" marginBottom="20px" gap={4}>
-            <Text border="1px solid black" marginLeft={0} borderRadius="50%" w="60px" h="60px" align="center" paddingTop="15px" bg={bgColor[i%bgColor.length]}>{`${item.firstName[0]}${item.lastName[0]}`}</Text>
+        return <HStack key={item.id} justifyContent="space-around" className={style.transH_Box}>
+
+            <Text className={style.transH_Img} bg={bgColor[i%bgColor.length]}>{`${item.firstName[0]}${item.lastName[0]}`}</Text>
             <VStack>
                 <Text color="blue.400">{item.firstName+" "+ item.lastName}</Text>
                 <Text color={item.location=="Sent"? "red":"green"}>{item.location}</Text>
@@ -123,6 +133,7 @@ const DashBoard =()=>{
                 <Text fontWeight="bold">{item.money}</Text>
                 <Text>{item.date}</Text>
             </VStack>
+            
         </HStack>
       })}
       </Grid>

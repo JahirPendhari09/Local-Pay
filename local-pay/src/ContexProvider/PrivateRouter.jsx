@@ -4,8 +4,8 @@ import {Navigate} from "react-router-dom";
 
 const PrivateRouter=(props)=>{
 
-    const {forState}= useContext(AuthContext);
-    if(!forState.isAuth)
+    const {isAuth}= useContext(AuthContext);
+    if(isAuth==false)
     {
         return <Navigate to="/login"/>
     }
