@@ -1,6 +1,6 @@
 
 import { useContext, useState } from "react";
-import { Button, Input, Text, Box, Image, HStack } from '@chakra-ui/react'
+import { Button, Input, Text, Box, Image, HStack, Center } from '@chakra-ui/react'
 import { Link, Navigate } from "react-router-dom";
 import style from "../Styles/login.module.css";
 import { AuthContext } from "../ContexProvider/AuthcontextProvider";
@@ -62,7 +62,7 @@ function Login() {
         }}
       />
 
-      <Button bg="blue.100" type="submit">Login</Button>
+      <Center><Button bg="blue.100" type="submit">Login</Button></Center>
     </form>
     <br />
     <Text>New User ? <span style={{ color: "blue" }}><Link to="/signUp">Register</Link></span></Text>
