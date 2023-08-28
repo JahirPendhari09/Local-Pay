@@ -25,5 +25,5 @@ Start the development server:   ``` npm start ``` <br/>
 Open your browser and visit:   ``` http://localhost:3000 ``` <br/>
 
 # Credits <br/>
-This project was developed by ```jahir Pendhari``` as a part of ```Masai School``` training program.
+This project was developed by ```Jahir Pendhari``` as a part of ```Masai School``` training program.
 <br/><br/>
