@@ -6,6 +6,7 @@ import { AddCard } from "../Pages/AddCard"
 import { DashBoard } from "../Pages/DashBoard"
 import { PrivateRouter } from "../ContexProvider/PrivateRouter"
 import { Profile } from "../Pages/Profile"
+import {AddBank} from "../Pages/AddBank"
 
 
 const AllRoutes=()=>{
@@ -18,6 +19,7 @@ const AllRoutes=()=>{
         <Route path="/add" element={<AddCard/>}/>
         <Route path="/dashboard" element={<PrivateRouter><DashBoard/></PrivateRouter>}/>
         <Route path="/profile" element={<PrivateRouter><Profile/></PrivateRouter>}/>
+        <Route path="/add_bank_account" element={<AddBank/>}/>
       </Routes>
     </>
 }

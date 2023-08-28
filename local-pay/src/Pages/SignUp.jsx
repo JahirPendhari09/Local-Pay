@@ -50,7 +50,8 @@ function SignUp() {
       return <LoadingSkeleton/>
   }
 
-  return <Box h="550px" className={style.mainBox}>
+  return <Box bg="gray.500" p="30px">
+    <Box h="550px" className={style.mainBox} bg="white">
 
      <Text textAlign="center" marginBottom="30px" fontSize="35px" fontWeight="600">Sign Up</Text>
 
@@ -145,6 +146,7 @@ function SignUp() {
        <Image src="../google.png" alt="" w="30px" _hover={{cursor:"pointer"}}/>
        <Image src="../facebook.png" alt="" w="30px" _hover={{cursor:"pointer"}}/>
      </HStack>
+  </Box>
   </Box>
 }
 

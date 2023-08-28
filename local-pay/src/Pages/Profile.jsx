@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 import { useContext } from "react"
 import { AuthContext } from "../ContexProvider/AuthcontextProvider"
 import style from "../Styles/profile.module.css"
+import { AddBank } from "./AddBank";
 
 
 const Profile =()=>{
-    const {logout,email,password,mobile,firstName,lastName,gender}= useContext(AuthContext);
+    const {logout,email,mobile,firstName,lastName,gender}= useContext(AuthContext);
     return <>
     
     <Link to="/"> <Text paddingLeft="100px" fontSize="30px" mt="20px"><ArrowBackIcon/> Profile </Text></Link>
@@ -32,16 +33,19 @@ const Profile =()=>{
     </Grid>
 
     <Text paddingLeft="150px" marginTop="30px" fontSize="25px">Payment Methods</Text>
-   <HStack className={style.payMethod} gap="30px">
-       <HStack border="1px" w="50%" h="100px" borderRadius="10px" bg="green.100">
-           <Image src="https://w7.pngwing.com/pngs/279/210/png-transparent-wire-transfer-bank-account-payment-money-bank-angle-service-logo.png" alt="bank Logo" borderRadius="50%" w="70px" h="70px" ml="50px"/>
-            <Text ml="20px">Bank account</Text>
-        </HStack>
-        <HStack border="1px" w="50%" h="100px" borderRadius="10px" bg="bisque">
-             <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh6SUdnBppVXH8wLfk4kXPjsAV_VZf8-RmPQ&usqp=CAU" alt="card Logo" borderRadius="50%" w="70px" h="70px" ml="50px"/>
-             <Text ml="20px">Debit/Credit card</Text>
-        </HStack>
-   </HStack>
+   <Grid className={style.payMethod} templateColumns={['1fr', '1fr 1fr', '1fr 1fr 1fr']} gap="30px">
+       <Link to="/add_bank_account"><HStack border="1px" w="250px" h="100px" borderRadius="10px" bg="green.100">
+           <Image src="https://w7.pngwing.com/pngs/279/210/png-transparent-wire-transfer-bank-account-payment-money-bank-angle-service-logo.png" alt="bank Logo" borderRadius="50%" w="50px" h="50px" ml="10px"/>
+            <Text ml="10px">Bank account</Text>
+        </HStack></Link>
+        <Link> <HStack border="1px" w="250px" h="100px" borderRadius="10px" bg="bisque">
+             <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh6SUdnBppVXH8wLfk4kXPjsAV_VZf8-RmPQ&usqp=CAU" alt="card Logo" borderRadius="50%" w="50px" h="50px" ml="10px"/>
+             <Text ml="10px">Debit/Credit card</Text>
+        </HStack></Link>
+        <Link> <HStack border="1px" borderStyle="dashed" w="250px" h="100px" borderRadius="10px" >
+             <Text ml="20%" >Add payment Method</Text>
+        </HStack></Link>
+   </Grid>
    <br />
     <hr />
     <Text paddingLeft="150px" marginTop="30px" fontSize="25px">Other</Text>

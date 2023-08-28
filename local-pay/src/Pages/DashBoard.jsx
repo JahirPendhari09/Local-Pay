@@ -1,10 +1,11 @@
 import { Box,Grid,Center, HStack ,Image,Text, VStack,Button,useMediaQuery} from "@chakra-ui/react"
-import { useEffect, useState } from "react"
+import { useEffect, useState,useContext } from "react"
 import { PaymentSection } from "./PaymentSection"
 import style from "../Styles/payment.module.css"
 import { Link } from "react-router-dom"
 import axios from "axios"
 import LoadingSkeleton from "../Component/LoadingSkeleton"
+import { AuthContext } from "../ContexProvider/AuthcontextProvider";
 
 const bgColor=["lightgreen", "pink", "lightblue", "orange","lightgray"]
 // const history=[
@@ -56,6 +57,7 @@ const DashBoard =()=>{
     const [transaction_History, setHistory]= useState([]);
     const [loading, setLoading]= useState(false);
 
+    const {balance}= useContext(AuthContext)
     const fetchData =()=>{
         setLoading(true)
           axios.get("https://local-pay.onrender.com/transaction_History")
@@ -67,7 +69,7 @@ const DashBoard =()=>{
     useEffect(()=>{
         fetchData();
     },[])
-    console.log(transaction_History)
+
     
     if(loading)
     {
@@ -82,7 +84,7 @@ const DashBoard =()=>{
        <HStack justifyContent="space-evenly" marginTop="20px" >
           <VStack>
              <Text fontSize="30px" fontWeight="700" >Total Balance</Text>
-             <Text  fontSize="30px" fontWeight="700" >$2000</Text>
+             <Text  fontSize="30px" fontWeight="700" >${balance=="AddAccount"?<Link to="/add_bank_account"> add Account</Link>:balance}</Text>
           </VStack>
         <Button fontSize="25px" bg="green.300"><span><Image src="https://w7.pngwing.com/pngs/632/307/png-transparent-paper-planes-send-newsletter-icon-blue-tinker-thumbnail.png" borderRadius="50%" h="30px" marginRight="20px"/></span> Send</Button>
        </HStack>

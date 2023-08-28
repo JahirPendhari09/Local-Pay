@@ -7,7 +7,11 @@ const initialState={
     mobile:"",
     firstName:"",
     lastName:"",
-    gender:""
+    gender:"",
+    accountH_Name:"",
+    account_No:"",
+    ifsc:"",
+    balance:""
   };
 const AuthcontextProvider=({children})=>{
 
@@ -21,7 +25,12 @@ const AuthcontextProvider=({children})=>{
             mobile:`${res.mobile}`,
             firstName:`${res.firstName}`,
             lastName:`${res.lastName}`,
-            gender:`${res.gender}`
+            gender:`${res.gender}`,
+            id:`${res.id}`,
+            accountH_Name:`${res.accountH_Name? res.accountH_Name:"AddAccount"}`,
+            account_No:`${res.account_No? res.account_No:"AddAccount"}`,
+            ifsc:`${res.ifsc? res.ifsc:"AddAccount"}`,
+            balance:`${res.balance? res.balance:"AddAccount"}`
         })
         {mainUser&& setIsAuth(true)}
         console.log(res)
@@ -32,9 +41,10 @@ const AuthcontextProvider=({children})=>{
         setIsAuth(false)
     }
     
-    const {email,password,mobile,firstName,lastName,gender}=mainUser
+    const {email,password,mobile,firstName,lastName,gender,id,accountH_Name,account_No,ifsc,balance}=mainUser
 
-    return <AuthContext.Provider value={{isAuth,login,logout,email,password,mobile,firstName,lastName,gender}}>{children}</AuthContext.Provider>
+    return <AuthContext.Provider value={{isAuth,login,logout,email,password,mobile,firstName,lastName,gender,id
+        ,accountH_Name,account_No,ifsc,balance}}>{children}</AuthContext.Provider>
 }
 
 export {AuthcontextProvider}
