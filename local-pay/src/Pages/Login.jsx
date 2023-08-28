@@ -16,7 +16,7 @@ function Login() {
 
   const checkLogin=(res)=> {
     if (res.length) { 
-      return login() 
+      return login(res[0]) 
     }
     else {
       alert("Login failed!...email or password Incorrect");

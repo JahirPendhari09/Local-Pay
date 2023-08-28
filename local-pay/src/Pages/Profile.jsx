@@ -5,23 +5,29 @@ import { Link } from 'react-router-dom';
 import { useContext } from "react"
 import { AuthContext } from "../ContexProvider/AuthcontextProvider"
 import style from "../Styles/profile.module.css"
+
+
 const Profile =()=>{
-    const {logout}= useContext(AuthContext);
+    const {logout,email,password,mobile,firstName,lastName,gender}= useContext(AuthContext);
     return <>
     
     <Link to="/"> <Text paddingLeft="100px" fontSize="30px" mt="20px"><ArrowBackIcon/> Profile </Text></Link>
     <Grid templateColumns={'1fr 1fr'} gap="40%" className={style.mainBox}>
         <VStack>
-            <Text fontSize="35px" fontWeight="bold" color="green">Jahir Pendhari</Text>
-            <Text fontSize="20px" color="blue">Jahirpp1999@gmail.com</Text>
-            <Text fontSize="20px">+91 8007631530</Text>
+            <Text fontSize="35px" fontWeight="bold" color="green">{firstName+" "+lastName}</Text>
+            <Text fontSize="20px" color="blue">{email}</Text>
+            <Text fontSize="20px">+91 {mobile}</Text>
             <HStack>
                 <Image w="30px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP7BDhPzBT9cTSXm-3M9eSnLoxNz9nyrvRMg&usqp=CAU" alt="logo" borderRadius="10px"/>
                 <Text fontSize="20px" color="red.400">$1,589 Rewards earned</Text>
             </HStack>
         </VStack>
         <Box w="40%" m="10px" >
-            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBTOg603d6teCcurg5osM1lWw-FEww8azCC0B3sl2-EHMtedVFEbfL2GWqJM4nBz_GGX8&usqp=CAU"  borderRadius="50%" boxShadow="2xl"/>
+            <Image 
+            src={ gender=="male"?
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBTOg603d6teCcurg5osM1lWw-FEww8azCC0B3sl2-EHMtedVFEbfL2GWqJM4nBz_GGX8&usqp=CAU"
+                :"https://img.freepik.com/premium-vector/portrait-caucasian-woman-avatar-female-person-vector-icon-adult-flat-style-headshot_605517-26.jpg?w=2000"} 
+                 borderRadius="50%" boxShadow="2xl"/>
         </Box>
     </Grid>
 

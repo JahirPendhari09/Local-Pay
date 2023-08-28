@@ -36,7 +36,7 @@ const NoDecorationLink = chakra(Link, {
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const btnRef = React.useRef();
-    const {isAuth}= useContext(AuthContext);
+    const {isAuth,firstName}= useContext(AuthContext);
 
     // const [isAuth, setAuth] = useState(true)
     return (
@@ -64,7 +64,7 @@ const Navbar = () => {
                         <Link to="/dashboard" color="white">
                             Dashboard
                         </Link>
-                        {!isAuth?<Link to="/login"> <Button>Login</Button></Link>:<Link to="/profile"><Button>Jahir</Button></Link>}
+                        {!isAuth?<Link to="/login"> <Button>Login</Button></Link>:<Link to="/profile"><Button>{firstName}</Button></Link>}
                     </HStack>
                     <IconButton
                         display={{ base: 'inline-flex', md: 'none' }}
@@ -100,7 +100,7 @@ const Navbar = () => {
                             <Link to="/dashboard" onClick={onClose}>
                                 Dashboard
                             </Link>
-                            {!isAuth?<Link to="/login"> <Button>Login</Button></Link>:<Link to="/profile"><Button>Jahir</Button></Link>}
+                            {!isAuth?<Link to="/login"> <Button>Login</Button></Link>:<Link to="/profile"><Button>{firstName}</Button></Link>}
                         </VStack>
                     </DrawerBody>
                 </DrawerContent>
