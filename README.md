@@ -4,7 +4,7 @@ Local Pay using HTML, CSS, JavaScript, React  and Chakra UI for Masai School pro
 
 # Landing Page:
 <br/>
-<img src="https://drive.google.com/file/d/1kduL4z_BnOZNcnWt4Z_BU-SMwcopnBAv/view?usp=sharing" alt="Home Page" width="200px" height="200px"/>
+<img src="https://drive.google.com/file/d/1kduL4z_BnOZNcnWt4Z_BU-SMwcopnBAv/view?usp=sharing" alt="Home Page" width="200px" height="200px">
 
 
 
