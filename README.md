@@ -4,7 +4,7 @@ Local Pay using HTML, CSS, JavaScript, React  and Chakra UI for Masai School pro
 
 # Landing Page:
 A visually appealing landing page . <br/>
-<img src="https://local-pay.netlify.app" alt="Home Page"/>
+<img src="https://drive.google.com/file/d/1kduL4z_BnOZNcnWt4Z_BU-SMwcopnBAv/view?usp=sharing" alt="Home Page"/>
 
 
 # Tech Stack -:<br/>
