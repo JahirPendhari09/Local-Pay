@@ -12,6 +12,7 @@ The project is built using the following technologies:
     <img src="https://img.shields.io/badge/Chakra%20UI-3bc7bd?style=for-the-badge&logo=chakraui&logoColor=white" alt="chakra-ui" />
 </p>
 
+
 # How to Run <br/>
 Clone the repository:   ``` git clone https://github.com/JahirPendhari09/energized-secretary-1272 ``` <br/>
 Navigate to the project directory:   ``` cd Local-pay``` <br/>
