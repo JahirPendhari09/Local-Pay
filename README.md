@@ -2,7 +2,6 @@
 # Local Pay
 Local Pay using HTML, CSS, JavaScript, React  and Chakra UI for Masai School project, showcasing skills in full-stack web development, API integration, and UI design.
 
-
 # Tech Stack -:<br/>
 The project is built using the following technologies:
 <p >
