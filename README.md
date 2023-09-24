@@ -16,13 +16,13 @@ The project is built using the following technologies:
 </p>
 
 
-# How to Run <br/>
+# How to Run 
 Clone the repository:   ``` git clone https://github.com/JahirPendhari09/energized-secretary-1272 ``` <br/>
 Navigate to the project directory:   ``` cd Local-pay``` <br/>
 Install the dependencies:   ``` npm install ``` <br/>
 Start the development server:   ``` npm start ``` <br/>
 Open your browser and visit:   ``` http://localhost:3000 ``` <br/>
 
-# Credits <br/>
+# Credits 
 This project was developed by ```Jahir Pendhari``` as a part of ```Masai School``` training program.
 <br/><br/>
